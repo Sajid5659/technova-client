@@ -1,12 +1,32 @@
-import React from 'react';
-import { NavLink } from 'react-router';
-
+import React, { use } from 'react';
+import { Link, NavLink } from 'react-router';
+import { AuthContext } from '../Provider/AuthProvider/AuthProvider';
+import userIcon from "../assets/user.png"
+import logo from "../assets/logo.png"
 const Navbar = () => {
-    const links = <>
-        <NavLink className={({ isActive }) => isActive ? 'border-b-3 font-semibold text-black' : ''} to='/'>Home</NavLink>
-        <NavLink className={({ isActive }) => isActive ? 'border-b-3 font-semibold text-black' : ''} to='/products'>Products</NavLink>
-        <NavLink className={({ isActive }) => isActive ? 'border-b-3 font-semibold text-black' : ''} to='/contact'>Contact</NavLink>
-    </>
+    const { user} = use(AuthContext)
+    
+    const handleLogout = () => {
+        console.log("ok");
+    }
+    
+    const links = (
+        <div className="flex flex-col md:flex-row gap-6 font-medium text-lg">
+            {[
+                { to: "/", label: "Home" },
+                { to: "/products", label: "Products" },
+                { to: "/contact", label: "Contact" }
+            ].map((item) => (
+                <NavLink
+                    key={item.to}
+                    to={item.to}
+                    className="relative"
+                >
+                    {item.label}
+                </NavLink>
+            ))}
+        </div>
+    );
     return (
         <div>
             <div className='shadow-sm bg-white fixed top-0 z-100 w-full'>
@@ -25,7 +45,7 @@ const Navbar = () => {
                             </ul>
                         </div>
                         <div>
-                            <img className='w-24'  alt="" />
+                            <img className='w-32' src={logo} alt="" />
                         </div>
                     </div>
                     <div className="navbar-center hidden lg:flex">
@@ -34,10 +54,10 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <div className="navbar-end flex gap-3">
-                        {/* <Link to="/dashboard">
+                        <Link to="/dashboard">
                             <img className='w-10 h-10 object-cover rounded-full' src={user ? user.photoURL : userIcon} alt="" />
-                        </Link> */}
-                        {/* {
+                        </Link>
+                        {
                             user ? (
                                 <button onClick={handleLogout} className='btn border-secondary border-2 shadow-none text-sm bg-white text-secondary'>
                                     Logout
@@ -47,7 +67,7 @@ const Navbar = () => {
                                     Login
                                 </Link>
                             )
-                        } */}
+                        }
                     </div>
                 </div>
             </div>
