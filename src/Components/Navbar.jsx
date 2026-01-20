@@ -3,13 +3,33 @@ import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../Provider/AuthProvider/AuthProvider';
 import userIcon from "../assets/user.png"
 import logo from "../assets/logo.png"
+import Swal from 'sweetalert2';
 const Navbar = () => {
-    const { user} = use(AuthContext)
-    
+    const { user, logoutUser } = use(AuthContext)
+
     const handleLogout = () => {
-        console.log("ok");
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You will be logged out from TechNova",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, logout!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                logoutUser().then(()=>{
+                    Swal.fire({
+                    title: "Logged Out!",
+                    text: "Successfully logged out from TechNova",
+                    icon: "success"
+                });
+                })
+                
+            }
+        });
     }
-    
+
     const links = (
         <div className="flex flex-col md:flex-row gap-6 font-medium text-lg">
             {[

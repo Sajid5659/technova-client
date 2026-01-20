@@ -4,7 +4,7 @@ const Faq = () => {
     return (
         <div className="py-12">
             <div className="text-center max-w-200 mx-auto space-y-2 container">
-                <h2 className="text-4xl font-bold text-primary">
+                <h2 className="text-4xl font-bold text-secondary">
                     Frequently Asked Question
                 </h2>
                 <p className="text-black2">

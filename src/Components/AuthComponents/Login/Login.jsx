@@ -2,9 +2,10 @@ import React, { use, useState } from 'react';
 import { FcGoogle } from "react-icons/fc";
 import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../../../Provider/AuthProvider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Login = () => {
-    const { loginUser, user, setUser, setEmail, googleSignIn} = use(AuthContext)
+    const { loginUser, user, setUser, setEmail, googleSignIn } = use(AuthContext)
     const [error, setError] = useState("")
     const location = useLocation()
     const navigate = useNavigate()
@@ -15,9 +16,16 @@ const Login = () => {
         const password = e.target.password.value;
         setEmail(email)
         loginUser(email, password).then((result) => {
-
-            setUser(result)
-            navigate(location.state ? location.state : "/")
+            Swal.fire({
+                position: "top-center",
+                icon: "success",
+                title: `Successfully Logged in!`,
+                showConfirmButton: false,
+                timer: 2000
+            }).then(() => {
+                setUser(result)
+                navigate(location.state ? location.state : "/")
+            });
         }).catch(() => setError("Invalid email or password combination"))
 
     }
@@ -29,10 +37,10 @@ const Login = () => {
     }
     return (
         <div className='mt-16'>
-            <div className="min-h-screen w-full relative bg-white">
+            <div className="min-h-screen w-full relative">
                 {/* Teal Glow Top */}
                 <div
-                    className="absolute inset-0 z-0"
+                    className="absolute inset-0 -z-1"
                     style={{
                         background: "#ffffff",
                         backgroundImage: `
@@ -68,7 +76,7 @@ const Login = () => {
                                 <FcGoogle />
                                 Login with Google
                             </button>
-                            
+
                         </div>
                     </div>
                 </div>
