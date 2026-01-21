@@ -7,6 +7,7 @@ import Login from "../Components/AuthComponents/Login/Login";
 import Register from "../Components/AuthComponents/Register/Register";
 import Dashboard from "../Pages/Dashboard";
 import PrivateRoute from "./PrivateRoute";
+import Users from "../Components/Users/Users";
 
 const router = createBrowserRouter([
     {
@@ -28,7 +29,13 @@ const router = createBrowserRouter([
             },
             {
                 path: "/dashboard",
-                element: <PrivateRoute><Dashboard/></PrivateRoute>
+                element: <PrivateRoute><Dashboard/></PrivateRoute>,
+                children:[
+                    {
+                        path:"/dashboard/users",
+                        element: <Users/>
+                    }
+                ]
             },
             {
                 path: "/login",

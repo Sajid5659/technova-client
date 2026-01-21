@@ -10,6 +10,7 @@ const AuthProvider = ({ children }) => {
     const [email, setEmail] = useState("")
     const googleProvider = new GoogleAuthProvider();
     const [user, setUser] = useState(null)
+    const [dbUser, setdbUser] = useState(null)
     // console.log("from auth privider", user)
     const [loading, setLoading] = useState(true)
     const registerUser = (email, password) => {
@@ -51,6 +52,8 @@ const AuthProvider = ({ children }) => {
         loginUser,
         setUser,
         user,
+        dbUser,
+        setdbUser,
         logoutUser,
         loading,
         setLoading,
