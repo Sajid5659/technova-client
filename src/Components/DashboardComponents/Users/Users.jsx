@@ -20,8 +20,10 @@ const Users = ({ users }) => {
                         {/* row 1 */}
                         {
                             users.map((user, index) => (
-                                <tr >
-                                    <h1 className='font-bold flex pt-8 justify-center p-5'>{index + 1}</h1>
+                                <tr  key= {user._id}>
+                                    <td>
+                                        <h1 className='font-bold flex pt-8 justify-center p-5'>{index + 1}</h1>
+                                    </td>
                                     <td >
                                         <div className="flex items-center gap-3">
                                             <div className="avatar">
@@ -49,7 +51,7 @@ const Users = ({ users }) => {
                                     <th className='space-x-2'>
                                         <button className="btn bg-blue-200 btn-xs">details</button>
                                         <button className="btn bg-green-200 btn-xs">Update</button>
-                                        <button  className="btn bg-red-200 btn-xs">Delete</button>
+                                        <button className="btn bg-red-200 btn-xs">Delete</button>
                                     </th>
                                 </tr>
 

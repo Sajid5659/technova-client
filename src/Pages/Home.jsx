@@ -4,8 +4,7 @@ import Faq from '../Components/Faq';
 import { AuthContext } from '../Provider/AuthProvider/AuthProvider';
 
 const Home = () => {
-    const {user} = use(AuthContext)
-    console.log(user);
+
     return (
         <div className='mt-16'>
             <Banner></Banner>

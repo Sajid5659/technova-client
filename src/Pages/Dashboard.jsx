@@ -1,14 +1,14 @@
 import { use, useEffect, useState } from 'react';
-import { AuthContext } from '../Provider/AuthProvider/AuthProvider';
 import { FiEdit } from 'react-icons/fi';
 import { FaMapLocationDot } from "react-icons/fa6";
 import { FaPhoneAlt } from "react-icons/fa";
 import { IoMail } from "react-icons/io5";
 import Orders from '../Components/DashboardComponents/Orders/Orders';
 import Users from '../Components/DashboardComponents/Users/Users';
+import { DataContext } from '../Provider/AuthProvider/DataProvider';
 
 const Dashboard = () => {
-    const { user, dbUser, setdbUser } = use(AuthContext)
+    const {dbUser, setdbUser } = use(DataContext)
     const [users, setUsers] = useState([])
     const [loading, setLoading] = useState(true);
     //console.log(dbUser);
@@ -20,17 +20,7 @@ const Dashboard = () => {
                 setLoading(false);
             });
     }, []);
-    useEffect(() => {
-        if (user?.uid) {
-            fetch(`http://localhost:3000/users/${user.uid}`)
-                .then(res => res.json())
-                .then(data => {
-                    // console.log("User data from MongoDB:", data)
-                    setdbUser(data)
-                })
-                .catch(err => console.error("Error fetching user:", err))
-        }
-    }, [user?.uid, setdbUser])
+    
     return (
         <div className='mt-16'>
             <div className='mt-24 max-w-[90%] mx-auto relative'>

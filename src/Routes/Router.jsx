@@ -7,6 +7,7 @@ import Login from "../Components/AuthComponents/Login/Login";
 import Register from "../Components/AuthComponents/Register/Register";
 import Dashboard from "../Pages/Dashboard";
 import PrivateRoute from "./PrivateRoute";
+import AddProducts from "../Pages/AddProducts";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
             {
                 path: "/products",
                 element: <Products/>
+            },
+            {
+                path: "/addproducts",
+                element: <AddProducts/>
             },
             {
                 path: "/contact",
