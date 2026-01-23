@@ -15,7 +15,7 @@ const Dashboard = () => {
     const [orders, setOrders] = useState([])
     //console.log(dbUser);
     useEffect(() => {
-        fetch("http://localhost:3000/users")
+        fetch("https://technova-server.vercel.app/users")
             .then(res => res.json())
             .then(data => {
                 setUsers(data);
@@ -23,7 +23,7 @@ const Dashboard = () => {
             });
     }, [])
     useEffect(() => {
-        fetch(`http://localhost:3000/orders?email=${dbUser?.email}`)
+        fetch(`https://technova-server.vercel.app/orders?email=${dbUser?.email}`)
             .then(res => res.json())
             .then(data => setOrders(data));
     }, [dbUser?.email]);

@@ -9,7 +9,7 @@ const DataProvider = ({ children }) => {
     const [products, setProducts] = useState(null)
     useEffect(() => {
         if (user?.uid) {
-            fetch(`http://localhost:3000/users/${user.uid}`)
+            fetch(`https://technova-server.vercel.app/users/${user.uid}`)
                 .then(res => res.json())
                 .then(data => {
                     // console.log("User data from MongoDB:", data)

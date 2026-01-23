@@ -27,7 +27,7 @@ const Register = () => {
             const imageData = new FormData();
             imageData.append("image", imageFile);
         
-            const uploadRes = await fetch("http://localhost:3000/upload", {
+            const uploadRes = await fetch("https://technova-server.vercel.app/upload", {
               method: "POST",
               body: imageData,
             });
@@ -57,7 +57,7 @@ const Register = () => {
                 creationTime: result.user?.metadata?.creationTime,
                 lastSignInTime: result.user?.metadata?.lastSignInTime
             }
-            fetch("http://localhost:3000/users", {
+            fetch("https://technova-server.vercel.app/users", {
                 method: "POST",
                 headers: {
                     "content-type": "application/json"

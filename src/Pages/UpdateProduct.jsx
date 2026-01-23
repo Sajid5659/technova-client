@@ -16,7 +16,7 @@ const UpdateProduct = () => {
             const formData = new FormData();
             formData.append("image", newImage);
 
-            const res = await fetch("http://localhost:3000/upload", {
+            const res = await fetch("https://technova-server.vercel.app/upload", {
                 method: "POST",
                 body: formData
             });
@@ -34,7 +34,7 @@ const UpdateProduct = () => {
             photo: imageUrl,
             status: form.status.value
         };
-        fetch(`http://localhost:3000/products/${_id}`, {
+        fetch(`https://technova-server.vercel.app/products/${_id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json"

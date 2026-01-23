@@ -20,7 +20,7 @@ const AddProducts = () => {
     const imageData = new FormData();
     imageData.append("image", imageFile);
 
-    const uploadRes = await fetch("http://localhost:3000/upload", {
+    const uploadRes = await fetch("https://technova-server.vercel.app/upload", {
       method: "POST",
       body: imageData,
     });
@@ -37,7 +37,7 @@ const AddProducts = () => {
       photo: imageUrl,
     };
 
-    const res = await fetch("http://localhost:3000/products", {
+    const res = await fetch("https://technova-server.vercel.app/products", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(newProduct),
@@ -121,7 +121,7 @@ export default AddProducts;
 //         const newProduct = Object.fromEntries(formData.entries())
 //         console.log(newProduct);
 
-//         fetch("http://localhost:3000/products", {
+//         fetch("https://technova-server.vercel.app/products", {
 //             method: "POST",
 //             headers: {
 //                 'content-type': "application/json"

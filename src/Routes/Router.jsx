@@ -22,14 +22,14 @@ const router = createBrowserRouter([
                 index: true,
                 path: '/',
                 element: <Home></Home>,
-                loader: ()=> fetch("http://localhost:3000/products/recent").then(res => res.json()),
+                loader: ()=> fetch("https://technova-server.vercel.app/products/recent").then(res => res.json()),
                 hydrateFallbackElement: <Loading />
                 
             },
             {
                 path: "/products",
                 element: <Products />,
-                loader: () => fetch("http://localhost:3000/products").then(res => res.json()),
+                loader: () => fetch("https://technova-server.vercel.app/products").then(res => res.json()),
                 hydrateFallbackElement: <Loading />
             },
             {
@@ -39,13 +39,13 @@ const router = createBrowserRouter([
             {
                 path: "/updateProduct/:id",
                 element: <UpdateProduct/>,
-                loader: ({ params }) => fetch(`http://localhost:3000/products/${params.id}`).then(res => res.json()),
+                loader: ({ params }) => fetch(`https://technova-server.vercel.app/products/${params.id}`).then(res => res.json()),
                 hydrateFallbackElement: <Loading />
             },
             {
                 path: "/productdetails/:id",
                 element: <ProductDetails />,
-                loader: ({ params }) => fetch(`http://localhost:3000/products/${params.id}`).then(res => res.json()),
+                loader: ({ params }) => fetch(`https://technova-server.vercel.app/products/${params.id}`).then(res => res.json()),
                 hydrateFallbackElement: <Loading />
             },
             {
@@ -59,7 +59,7 @@ const router = createBrowserRouter([
             {
                 path: "/checkout/:id",
                 element: <PrivateRoute><Checkout/></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:3000/products/${params.id}`).then(res => res.json()),
+                loader: ({ params }) => fetch(`https://technova-server.vercel.app/products/${params.id}`).then(res => res.json()),
                 hydrateFallbackElement: <Loading />
 
             },

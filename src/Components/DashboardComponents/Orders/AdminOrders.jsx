@@ -4,7 +4,7 @@ import Swal from 'sweetalert2';
 const AdminOrders = () => {
     const [orders, setOrders] = useState([])
     useEffect(() => {
-        fetch("http://localhost:3000/orders").then(res => res.json()).then(data => setOrders(data))
+        fetch("https://technova-server.vercel.app/orders").then(res => res.json()).then(data => setOrders(data))
     }, [orders])
     const onUpdateStatus = async (orderId, status) => {
         const result = await Swal.fire({
@@ -17,7 +17,7 @@ const AdminOrders = () => {
 
         if (!result.isConfirmed) return;
 
-        const res = await fetch(`http://localhost:3000/orders/${orderId}`, {
+        const res = await fetch(`https://technova-server.vercel.app/orders/${orderId}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"

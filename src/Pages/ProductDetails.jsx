@@ -25,7 +25,7 @@ const ProductDetails = () => {
             // console.log( result.isConfirmed)
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:3000/products/${id}`, {
+                fetch(`https://technova-server.vercel.app/products/${id}`, {
                     method: "DELETE"
                 }).then(res => res.json()).then(data => {
                     console.log(data)

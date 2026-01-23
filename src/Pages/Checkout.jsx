@@ -72,7 +72,7 @@ const Checkout = () => {
         if (!result.isConfirmed) return;
 
         try {
-            const res = await fetch("http://localhost:3000/orders", {
+            const res = await fetch("https://technova-server.vercel.app/orders", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
