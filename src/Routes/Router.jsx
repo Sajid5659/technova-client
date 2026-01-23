@@ -12,6 +12,7 @@ import Loading from "../Components/Loading/Loading";
 import ProductDetails from "../Pages/ProductDetails";
 import UpdateProduct from "../Pages/UpdateProduct";
 import Checkout from "../Pages/Checkout";
+import Developer from "../Pages/Developer";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -61,6 +62,10 @@ const router = createBrowserRouter([
                 loader: ({ params }) => fetch(`http://localhost:3000/products/${params.id}`).then(res => res.json()),
                 hydrateFallbackElement: <Loading />
 
+            },
+            {
+                path:  "/developer",
+                element: <Developer/>
             },
             {
                 path: "/login",

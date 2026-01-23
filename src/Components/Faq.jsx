@@ -1,4 +1,3 @@
-import React from 'react';
 import faqImg from '../assets/resize-images/faq.png'
 const Faq = () => {
     return (
@@ -21,20 +20,20 @@ const Faq = () => {
                     <div className="collapse collapse-arrow bg-base-100 border border-base-300">
                         <input type="radio" name="faq" defaultChecked />
                         <div className="collapse-title font-semibold">
-                            Q1: How do I use coupon code SMART10?
+                            Q1: What is TechNova?
                         </div>
                         <div className="collapse-content text-sm">
-                            Add items → Open cart → Enter SMART10 → Apply.
+                            TechNova is a technology-driven e-commerce platform offering reliable, high-quality tech products designed to enhance your digital lifestyle.
                         </div>
                     </div>
 
                     <div className="collapse collapse-arrow bg-base-100 border border-base-300">
                         <input type="radio" name="faq" />
                         <div className="collapse-title font-semibold">
-                            Q2: How do I add money to my wallet?
+                            Q2: How do I place an order on TechNova?
                         </div>
                         <div className="collapse-content text-sm">
-                            Click Add → Balance updates instantly.
+                            Simply choose the product you want, then enter buy now button then give required details and place the order.
                         </div>
                     </div>
 
@@ -44,17 +43,26 @@ const Faq = () => {
                             Q3: What is the delivery charge?
                         </div>
                         <div className="collapse-content text-sm">
-                            ৳70 per order.
+                            ৳120 per order.
                         </div>
                     </div>
 
                     <div className="collapse collapse-arrow bg-base-100 border border-base-300">
                         <input type="radio" name="faq" />
                         <div className="collapse-title font-semibold">
-                            Q4: How do I checkout?
+                            Q4: How long does delivery take?
                         </div>
                         <div className="collapse-content text-sm">
-                            Ensure balance → Checkout → Done.
+                            It depends on our logistics and your location but we try our best to meet your expectations.
+                        </div>
+                    </div>
+                    <div className="collapse collapse-arrow bg-base-100 border border-base-300">
+                        <input type="radio" name="faq" />
+                        <div className="collapse-title font-semibold">
+                            Q5: How can I contact TechNova support?
+                        </div>
+                        <div className="collapse-content text-sm">
+                            You can reach us through the Contact Us page. Our support team is always ready to assist you.
                         </div>
                     </div>
                 </div>
@@ -64,4 +72,4 @@ const Faq = () => {
     );
 };
 
-export default Faq;
+export default Faq
